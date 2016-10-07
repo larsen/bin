@@ -1,6 +1,7 @@
 alias d='dmenu -fn "Droid Sans Mono-16" -l 10 -i'
 
 alias e='emacsclient -t'
+alias ec='emacsclient -c'
 alias magit='emacsclient -c -e "(magit-status)"'
 
 alias h='hledger register --monthly --depth 1'
