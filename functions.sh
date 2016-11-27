@@ -7,9 +7,15 @@ function toggle_touchpad_synaptics() {
   fi
 }
 
+XINPUT=/usr/bin/xinput
+
+function touchpad_device_number() {
+  local TOUCHPAD_DEVICE_NUMBER=$($XINPUT list | grep Touchpad | sed -nr 's/.*id=([0-9]+).*/\1/p')
+  echo $TOUCHPAD_DEVICE_NUMBER
+}
+
 function toggle_touchpad_libinput() {
-  TOUCHPAD_DEVICE_NUMBER=$(xinput list | grep Touchpad | sed -nr 's/.*id=([0-9]+).*/\1/p')
-  TOUCHPAD_STATE=$(xinput list-props 11 | grep "Device Enabled" | cut -d: -f 2 | sed -nr 's/\s//gp')
+  TOUCHPAD_STATE=$(touchpad_device_number)
   if [ $TOUCHPAD_STATE == "1" ]; then
       xinput --disable $TOUCHPAD_DEVICE_NUMBER
   else
