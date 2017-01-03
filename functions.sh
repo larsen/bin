@@ -22,3 +22,25 @@ function toggle_touchpad_libinput() {
       xinput --enable $TOUCHPAD_DEVICE_NUMBER
   fi
 }
+
+function age() {
+  echo $(( $(date +%s) - $(date +%s -r "$1") ))
+}
+
+function cache() {
+  i=1
+  cache_file="/tmp/__cache_"
+  cmd=""
+  while [ $i -le $# ]; do
+    cache_file="${cache_file}${!i}"
+    cmd="${cmd} ${!i}"
+    i=$((i+1))
+  done
+
+  if [ ! -f $cache_file ] || [ $(age "$cache_file") -ge 600 ]
+    then
+      eval $cmd > $cache_file
+  fi
+
+  cat $cache_file
+}
