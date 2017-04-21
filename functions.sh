@@ -1,3 +1,14 @@
+SCREEN_REVERSE_COLORS=0
+function toggle_screen_reverse_colors() {
+  if [ $SCREEN_REVERSE_COLORS == "0" ]; then
+      printf '\033[?5h'
+      SCREEN_REVERSE_COLORS=1
+  else
+      printf '\033[?5l'
+      SCREEN_REVERSE_COLORS=0
+  fi
+}
+
 function toggle_touchpad_synaptics() {
   TOUCHPAD_STATE=$(synclient -l | grep TouchpadOff | cut -d '=' -f 2)
   if [ $TOUCHPAD_STATE == "1" ]; then
