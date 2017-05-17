@@ -1,6 +1,10 @@
 # `~/bin`
 
-## Touchpad management
+## Bookmarks
+
+`export-links.el` is based on [the `get-webjump-sites` function](https://github.com/larsen/emacs-configuration/blob/master/larsen-functions.el#L97) you can find in [my Emacs configuration](https://github.com/larsen/emacs-configuration).
+
+## Touchpad
 
 `touchpad_on.sh` and `touchpad_off` are called via udev rules.  On my system, I have a file `/etc/udev/rules.d/logitech.rules` like what follows:
 
