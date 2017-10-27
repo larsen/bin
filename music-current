@@ -1,0 +1,9 @@
+#!/bin/bash
+
+CURRENT=$(mpc current)
+
+if [ ${#CURRENT} -ge 35 ]; then
+  printf "%s…" "${CURRENT:0:35}"
+else
+  echo $CURRENT
+fi
