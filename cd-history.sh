@@ -3,5 +3,8 @@
 source /usr/share/autojump/autojump.sh
 
 function c() {
-    cd $(cat ~/.local/share/autojump/autojump.txt | cut -f 2 | d)
+    DIR=$(cat ~/.local/share/autojump/autojump.txt | cut -f 2 | d)
+    if [[ $DIR != "" ]]; then
+        cd $DIR
+    fi
 }
