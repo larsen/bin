@@ -9,3 +9,5 @@ alias dired='emacsclient -c -e "(my-dired-frame default-directory)"'
 alias h='hledger register --monthly --depth 1'
 alias hs='hledger register --monthly expe --depth 1'
 alias hsal='hledger register --monthly salary --depth 1'
+
+alias jvim='jq . | vim +"set ft=json"'
