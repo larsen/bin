@@ -1,0 +1,6 @@
+#!/bin/sh
+
+note=$(clip2org)
+
+/usr/local/bin/emacsclient \
+  -e "(org-capture-string \"${note}\" \"n\")"
