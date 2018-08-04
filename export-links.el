@@ -10,4 +10,5 @@
 (require 'larsen-orgmode)
 
 (loop for l in (get-webjump-sites)
+      when l
       do (princ (format "%s %s\n" (cdr l) (car l))))
