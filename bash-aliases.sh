@@ -12,3 +12,5 @@ alias hs='hledger register --monthly expe --depth 1'
 alias hsal='hledger register --monthly salary --depth 1'
 
 alias jvim='jq . | vim +"set ft=json"'
+
+alias he='heroku'
