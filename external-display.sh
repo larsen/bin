@@ -1,5 +1,6 @@
 #!/bin/sh
 
-xrandr --output HDMI1 \
+xrandr --auto
+xrandr --output HDMI-2 \
        --primary \
-       --left-of eDP1
+       --left-of eDP-1
