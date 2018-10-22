@@ -1,0 +1,5 @@
+#!/bin/sh
+
+clip.py \
+  | pandoc -f html -t org \
+  | sed 's/"//g'

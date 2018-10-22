@@ -1,6 +1,7 @@
 #!/bin/bash
 
-DB=$(cat ~/.pgpass | cut -d ':' -f 1,3,4 |  dmenu -fn "Droid Sans Mono-16" -l 10 -i)
+# DB=$(cat ~/.pgpass | cut -d ':' -f 1,3,4 |  dmenu -fn "Droid Sans Mono-16" -l 10 -i)
+DB=$(cat ~/.pgpass | cut -d ':' -f 1,3,4 | rofi -show window -dmenu -lines 10 )
 
 if [[ $DB != "" ]]; then
   IFS=':' read -r host database_name user <<< "$DB"

@@ -4,10 +4,11 @@
 
 (require 'package)
 (package-initialize)
-(add-to-list 'load-path "/home/larsen/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d")
 
 (require 'larsen-functions)
 (require 'larsen-orgmode)
 
 (loop for l in (get-webjump-sites)
+      when l
       do (princ (format "%s %s\n" (cdr l) (car l))))
