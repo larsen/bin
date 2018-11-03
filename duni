@@ -1,0 +1,12 @@
+#!/bin/bash
+# duni - dmenu based unicode picker
+# (from http://chneukirchen.org/dotfiles/tools.html)
+
+# GNU cut doesn't grok UTF-8.
+EMOJI=$(uni . | sed 's/\t/   /g' | d | grep -Po '^.')
+if [ "$EMOJI" ]; then
+	printf %s "$EMOJI" | xclip -i
+	sleep 0.1
+	xdotool click 2
+	exit $?
+fi
