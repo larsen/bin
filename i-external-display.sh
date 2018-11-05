@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 function available_positions() {
   for position in --left-of --right-of --above --below
