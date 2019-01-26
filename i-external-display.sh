@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function available_positions() {
-  for position in --left-of --right-of --above --below
+  for position in --left-of --right-of --above --below --same-as
   do
     echo $position
   done
