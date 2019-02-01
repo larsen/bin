@@ -1,8 +1,9 @@
 #!/bin/bash
 
-DB=$(cat ~/.pgpass | sed 's/\(^#.*\)/\1:/' | sed '/^#.*$/{N;s/\n//}' | sed 's/^\([^#]\)/:\1/' | cut -d ':' -f 1,2,4,5 | sort |  rofi -show window -dmenu -lines 10 )
+DB=$(cat ~/.pgpass | sed 's/\(^#.*\)/\1:/' | sed '/^#.*$/{N;s/\n//}' | sed 's/^\([^#]\)/:\1/' | cut -d ':' -f 1,2,3,4,5 | sort |  rofi -show window -dmenu -lines 10 )
 
 if [[ $DB != "" ]]; then
-  IFS=':' read -r _label host database_name user <<< "$DB"
-  psql -h $host $database_name $user
+  IFS=':' read -r _label host port database_name user <<< "$DB"
+  echo "psql -h $host -p $port $database_name $user"
+  psql -h $host -p $port $database_name $user
 fi
