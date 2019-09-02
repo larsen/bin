@@ -7,7 +7,8 @@
 (require 'larsen-functions)
 
 (defvar nasa-api-endpoint "https://api.nasa.gov")
-(defvar nasa-api-key (getenv "NASA_APIKEY"))
+(defvar nasa-api-key (or (getenv "NASA_APIKEY")
+                         (error "You need to set NASA_APIKEY env variable!")))
 (defvar apod-pictures-root "~/Pictures/apod")
 
 (defun apod ()
