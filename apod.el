@@ -29,6 +29,7 @@
          (target-directory (format "%s/%s/" apod-pictures-root date))
          (hdurl (cdr (assoc 'hdurl apod-payload)))
          (explanation (cdr (assoc 'explanation apod-payload))))
+    (cl-assert (not (string-equal "video" media-type)))
     (ensure-directory-exists target-directory)
     (url-copy-file hdurl (expand-file-name (url-file-nondirectory hdurl)
                                            target-directory))))
