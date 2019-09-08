@@ -23,6 +23,11 @@
       (make-directory dir :create-parents)
     (error (message (cadr err)))))
 
+(defun save-explanation (explanation dir)
+  (write-region explanation nil
+                (expand-file-name "explanation"
+                                  target-directory)))
+
 (defun fetch-apod ()
   (let* ((apod-payload (apod))
          (media-type (cdr (assoc 'media_type apod-payload)))
@@ -32,6 +37,7 @@
          (explanation (cdr (assoc 'explanation apod-payload))))
     (cl-assert (not (string-equal "video" media-type)))
     (ensure-directory-exists target-directory)
+    (save-explanation explanation target-directory)
     (url-copy-file hdurl (expand-file-name (url-file-nondirectory hdurl)
                                            target-directory))))
 
