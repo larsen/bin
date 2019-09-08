@@ -25,6 +25,7 @@
 
 (defun fetch-apod ()
   (let* ((apod-payload (apod))
+         (media-type (cdr (assoc 'media_type apod-payload)))
          (date (cdr (assoc 'date apod-payload)))
          (target-directory (format "%s/%s/" apod-pictures-root date))
          (hdurl (cdr (assoc 'hdurl apod-payload)))
