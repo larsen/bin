@@ -11,11 +11,15 @@
                          (error "You need to set NASA_APIKEY env variable!")))
 (defvar apod-pictures-root "~/Pictures/apod")
 
-(defun apod ()
+(defun apod (&optional date)
+  (when date (message "Fetching APOD metadata for %s" date))
   (get-json-data
-   (format "%s/planetary/apod?api_key=%s"
+   (format "%s/planetary/apod?api_key=%s%s"
            nasa-api-endpoint
-           nasa-api-key)))
+           nasa-api-key
+           (if date
+               (format "&date=%s" date)
+             ""))))
 
 (defun ensure-directory-exists (dir)
   (message (format "Creating directory %s" dir))
@@ -28,8 +32,13 @@
                 (expand-file-name "explanation"
                                   target-directory)))
 
-(defun fetch-apod ()
-  (let* ((apod-payload (apod))
+(defun save-apod (url target-directory)
+  (url-copy-file hdurl (expand-file-name (url-file-nondirectory hdurl)
+                                         target-directory)))
+
+(defun fetch-apod (&optional date)
+  (when date (message "APOD for %s" date))
+  (let* ((apod-payload (apod date))
          (media-type (cdr (assoc 'media_type apod-payload)))
          (date (cdr (assoc 'date apod-payload)))
          (target-directory (format "%s/%s/" apod-pictures-root date))
@@ -38,7 +47,7 @@
     (cl-assert (not (string-equal "video" media-type)))
     (ensure-directory-exists target-directory)
     (save-explanation explanation target-directory)
-    (url-copy-file hdurl (expand-file-name (url-file-nondirectory hdurl)
-                                           target-directory))))
+    (save-apod hdurl hdurl target-directory)))
 
-(fetch-apod)
+(let ((date (nth 3 command-line-args)))
+  (fetch-apod ))
