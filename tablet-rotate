@@ -2,3 +2,6 @@
 
 xsetwacom --set "Wacom Bamboo 16FG 4x5 Pen stylus" Rotate half
 xsetwacom --set "Wacom Bamboo 16FG 4x5 Pen eraser" Rotate half
+
+# As a good measure, let's also map the device area to a single screen
+xsetwacom --set "Wacom Bamboo 16FG 4x5 Pen stylus" MapToOutput HDMI-2
