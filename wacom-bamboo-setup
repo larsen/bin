@@ -5,3 +5,9 @@ xsetwacom --set "Wacom Bamboo 16FG 4x5 Pen eraser" Rotate half
 
 # As a good measure, let's also map the device area to a single screen
 xsetwacom --set "Wacom Bamboo 16FG 4x5 Pen stylus" MapToOutput HDMI-2
+
+# I'm learning
+xsetwacom --set "Wacom Bamboo 16FG 4x5 Pad pad" Button 1 "key +ctrl z"
+
+# The other button for pan&move
+xsetwacom --set "Wacom Bamboo 16FG 4x5 Pad pad" Button 3 "key +space"
