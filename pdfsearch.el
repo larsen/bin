@@ -10,7 +10,7 @@
   (error "You need to provide a pattern to search"))
 
 (defun all-pdf-files (path)
-  (directory-files path t ".*\.pdf"))
+  (directory-files-recursively path ".*\.pdf"))
 
 (defun annotation-contents (annot)
   (replace-regexp-in-string "\n" " " (cdr (assoc 'contents annot))))
@@ -38,5 +38,3 @@
       (path (or (nth 4 command-line-args)
                 ".")))
   (pdf-search pattern path))
-
-
