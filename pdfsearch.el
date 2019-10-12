@@ -6,6 +6,8 @@
 (require 'pdf-annot)
 (require 'cl)
 
+(setq large-file-warning-threshold nil)
+
 (defun usage ()
   (error "You need to provide a pattern to search"))
 
