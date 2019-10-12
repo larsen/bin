@@ -4,7 +4,6 @@
 (package-initialize)
 
 (require 'pdf-annot)
-(require 'commander)
 (require 'cl)
 
 (defun usage ()
