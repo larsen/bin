@@ -1,0 +1,16 @@
+#!/bin/bash
+
+USAGE="Usage: $0 PATTERN"
+NOTES_ROOTDIR=~/Dropbox/notes/
+
+if [ "$#" == "0" ]; then
+	echo "$USAGE"
+	exit 1
+fi
+
+PATTERN=$1
+
+FILE_TO_OPEN=$(pdfsearch.el $1 $NOTES_ROOTDIR | d | sed 's/:.*$//')
+
+echo "${FILE_TO_OPEN}"
+xdg-open "$FILE_TO_OPEN"
