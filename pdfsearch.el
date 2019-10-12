@@ -13,8 +13,6 @@
 (defun all-pdf-files (path)
   (directory-files path t ".*\.pdf"))
 
-string-match
-
 (defun annotation-contents (annot)
   (replace-regexp-in-string "\n" " " (cdr (assoc 'contents annot))))
 
