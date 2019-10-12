@@ -26,7 +26,7 @@
   (let ((all-annotations (get-all-annotations file)))
     (when all-annotations
       (if (string-match pattern all-annotations)
-          all-annotations
+          (message (format "%s: %s" file all-annotations))
         nil))))
 
 (cl-defun pdf-search (pattern &optional (path "."))
