@@ -2,7 +2,9 @@
 
 (require 'package)
 (package-initialize)
+(add-to-list 'load-path "~/.emacs.d")
 
+(require 'larsen-functions)
 (require 'pdf-annot)
 (require 'cl)
 
@@ -44,8 +46,7 @@ annotations saved in the file."
   (dolist (pdf-file (all-pdf-files path))
     (search-in-annots pattern pdf-file)))
 
-(let ((pattern (or (nth 3 command-line-args)
-                   (usage)))
-      (path (or (nth 4 command-line-args)
-                ".")))
-  (pdf-search pattern path))
+(with-positional-args
+ ((pattern :mandatory "You must provide a PATTERN")
+  (path :default "."))
+ (pdf-search pattern path))

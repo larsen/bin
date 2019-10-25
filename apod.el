@@ -49,5 +49,7 @@
     (save-explanation payload-explanation target-directory)
     (save-apod payload-hdurl target-directory)))
 
-(let ((date (nth 3 command-line-args)))
-  (fetch-apod date))
+
+(with-positional-args
+ ((date))
+ (fetch-apod date))
