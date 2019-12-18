@@ -17,19 +17,6 @@
   "Recursively find every PDF file starting from PATH."
   (directory-files-recursively path ".*\.pdf"))
 
-(defun annotation-contents (annot)
-  "Return the text content in ANNOT. Newlines are converted to
-spaces."
-  (replace-regexp-in-string "\n" " " (cdr (assoc 'contents annot))))
-
-(defun get-all-annotations (file)
-  "Return all annotations saved in FILE, as a concatenation of
-their contents."
-  (let* ((annots (with-current-buffer (find-file file)
-                   (pdf-view-mode)
-                   (pdf-annot-getannots nil nil))))
-    (mapconcat 'annotation-contents annots " ")))
-
 (defun search-in-annots (pattern file)
   (let ((all-annotations (get-all-annotations file)))
     (when all-annotations
