@@ -1,0 +1,3 @@
+#!/bin/sh
+
+emacsclient -c -e "(calendar-frame-setup 'calendar-only)"
