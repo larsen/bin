@@ -21,3 +21,4 @@ alias hdinner='hledger register --monthly food:dinner --depth 1'
 alias jvim='jq . | vim +"set ft=json"'
 
 alias he='heroku'
+alias icat="kitty +kitten icat"
