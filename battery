@@ -1,3 +1,5 @@
 #!/bin/sh
 
-upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"
+upower -i $(upower -e | grep 'BAT') \
+  | grep -E "state|to\ full|percentage|power" \
+  | sed 's/^[[:blank:]]*//'
