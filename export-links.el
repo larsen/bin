@@ -4,7 +4,7 @@
 
 (require 'package)
 (package-initialize)
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 
 (require 'larsen-functions)
 (require 'larsen-orgmode)
