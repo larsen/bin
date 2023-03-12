@@ -5,9 +5,13 @@ if [ "$#" == "0" ]; then
 fi
 
 if [ "$#" == "1" ]; then
-    emacsclient -c -e "(my-dired-frame \"$1\")"
+    dir1=$(readlink -f $1)
+    emacsclient -c -e "(my-dired-frame \"$dir1\")"
 fi
 
 if [ "$#" == "2" ]; then
-    emacsclient -c -e "(my-dired-frame \"$1\" \"$2\")"
+    dir1=$(readlink -f $1)
+    dir2=$(readlink -f $2)
+
+    emacsclient -c -e "(my-dired-frame \"$dir1\" \"$dir2\")"
 fi
