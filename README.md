@@ -13,7 +13,7 @@ ACTION=="add", SUBSYSTEM=="usb", ENV{ID_VENDOR_ID}=="046d", ENV{ID_MODEL_ID}=="c
 ACTION=="remove", SUBSYSTEM=="usb", ENV{ID_VENDOR_ID}=="046d", ENV{ID_MODEL_ID}=="c52b", RUN+="/home/larsen/bin/touchpad_on.sh"
 ```
 
-This way the touchpad is disabled when I attach the extental trackpad, and viceversa.
+This way the touchpad is disabled when I attach the external trackpad, and viceversa.
 
 ## `clip2capture`
 
