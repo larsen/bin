@@ -1,5 +1,5 @@
 . ~/bin/bash-aliases.sh
-. ~/bin/work-aliases.sh
+# . ~/bin/work-aliases.sh
 . ~/bin/cd-history.sh
 # . ~/bin/mxm-aliases.sh
 . ~/bin/functions.sh

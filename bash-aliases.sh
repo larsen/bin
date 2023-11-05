@@ -1,6 +1,6 @@
 # alias d='dmenu -fn "Droid Sans Mono-16" -l 10 -i'
 
-. ~/bin/work-aliases.sh
+# . ~/bin/work-aliases.sh
 
 alias mc='. /usr/lib/mc/mc-wrapper.sh'
 
@@ -21,3 +21,7 @@ alias jvim='jq . | vim +"set ft=json"'
 
 alias he='heroku'
 alias icat="kitty +kitten icat"
+
+alias o='xdg-open'
+
+alias smart-check='sudo smartctl -t short /dev/nvme0n1 -a'
