@@ -5,11 +5,12 @@ function available_clients() {
   echo pgcli
 }
 
-DB=$(cat ~/.pgpass | sed 's/\(^#.*\)/\1:/' | sed '/^#.*$/{N;s/\n//}' | sed 's/^\([^#]\)/:\1/' | cut -d ':' -f 1,2,3,4,5 | sort |  rofi -show window -dmenu -lines 10 )
+# DB=$(cat ~/.pgpass | sed 's/\(^#.*\)/\1:/' | sed '/^#.*$/{N;s/\n//}' | sed 's/^\([^#]\)/:\1/' | cut -d ':' -f 1,2,3,4,5 | sort |  rofi -show window -dmenu -lines 10 )
+DB=$(cat ~/.pgpass | sed 's/\(^#.*\)/\1:/' | sed '/^#.*$/{N;s/\n//}' | sed 's/^\([^#]\)/:\1/' | cut -d ':' -f 1,2,3,4,5 | sort | d )
 CLIENT=$(available_clients | d)
 
 if [[ $DB != "" ]]; then
   IFS=':' read -r _label host port database_name user <<< "$DB"
   echo "$CLIENT -h $host -p $port $database_name $user"
-  $CLIENT -h $host -p $port $database_name $user
+    $CLIENT -h $host -p $port $database_name $user;
 fi
