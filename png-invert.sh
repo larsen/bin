@@ -1,2 +1,2 @@
 #!/bin/bash
-convert png:- -channel RGB -negate png:-
+magick convert png:- -channel RGB -negate png:-
