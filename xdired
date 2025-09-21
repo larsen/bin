@@ -1,17 +1,20 @@
 #!/bin/bash
 
+EMACSCLIENT=emacsclient
+EMACSCLIENT_OPTIONS="-t"
+
 if [ "$#" == "0" ]; then
-    emacsclient -c -e "(my-dired-frame default-directory)"
+    $EMACSCLIENT $EMACSCLIENT_OPTIONS -e "(my-dired-frame default-directory)"
 fi
 
 if [ "$#" == "1" ]; then
     dir1=$(readlink -f $1)
-    emacsclient -c -e "(my-dired-frame \"$dir1\")"
+    $EMACSCLIENT $EMACSCLIENT_OPTIONS -e "(my-dired-frame \"$dir1\")"
 fi
 
 if [ "$#" == "2" ]; then
     dir1=$(readlink -f $1)
     dir2=$(readlink -f $2)
 
-    emacsclient -c -e "(my-dired-frame \"$dir1\" \"$dir2\")"
+    $EMACSCLIENT $EMACSCLIENT_OPTIONS -e "(my-dired-frame \"$dir1\" \"$dir2\")"
 fi
