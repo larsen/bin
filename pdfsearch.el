@@ -33,7 +33,6 @@ annotations saved in the file."
   (dolist (pdf-file (all-pdf-files path))
     (search-in-annots pattern pdf-file)))
 
-(with-positional-args
- ((pattern :mandatory "You must provide a PATTERN")
-  (path :default "."))
+(with-positional-args ((pattern :mandatory "You must provide a PATTERN")
+                       (path :default "."))
  (pdf-search pattern path))
